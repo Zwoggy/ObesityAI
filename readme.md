@@ -36,16 +36,29 @@ NObesity values are:
 •Obesity II 35.0 to 39.9
 
 •Obesity III Higher than 40
-## Getting Started
+## Project Structure
+
+- **main.py**: Python script for loading the dataset, preprocessing data, training the RandomForestClassifier, and evaluating the model.
+- **ObesityDataSet.csv**: Dataset file containing information about individuals.
+- **venv/**: Virtual environment for managing project dependencies.
+- **README.md**: Documentation file (you are here).
+
 
 ### Dependencies
 
-* Python + IDE (i.e. Pycharm)
-* libraries are listed in requirements.txt
+* Python 3.x
+* Pandas
+* Scikit-learn
+* NumPy
 
 ### Installing
 
 * pull from GitHub: https://github.com/Zwoggy/ObesityAI 
+* ```bash
+  git clone https://github.com/your-username/obesity-risk-prediction.git
+  cd obesity-risk-prediction
+  pip install -r requirements.txt
+
 * ```python
     # In line 21 change the Path in the line below according to your own path
         
@@ -63,8 +76,7 @@ if __name__ == "__main__":
 
 
 ## Authors
-Florian Zwicker
-
+This project was developed by Florian Zwicker. If you find it useful or have any questions, feel free to reach out!
 ## Version History
 
 * 0.1
