@@ -84,7 +84,7 @@ This project was developed by Florian Zwicker. If you find it useful or have any
 
 ## License
 
-This project is not licensed
+This project is licensed under the MIT License.
 
 ## Acknowledgments
 
