@@ -11,6 +11,7 @@ from sklearn.metrics import classification_report, accuracy_score
 from sklearn.model_selection import train_test_split
 
 def get_data():
+    #Change the Path in the line below according to your own path
     dataset = pd.read_csv('G:/Users/tinys/PycharmProjects/ObesityRiskAI/ObesityDataSet.csv')
     dataset.head()
     print(dataset.head())
