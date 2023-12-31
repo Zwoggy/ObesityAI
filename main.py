@@ -5,26 +5,28 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler, LabelEncoder
 from sklearn.impute import SimpleImputer
 from sklearn.compose import make_column_selector as selector
 
-import numpy as np
 import pandas as pd
 from sklearn.metrics import classification_report, accuracy_score
 from sklearn.model_selection import train_test_split
+import seaborn as sns
+import matplotlib.pyplot as plt
+
 
 def get_data():
-    #Change the Path in the line below according to your own path
+    # Change the Path in the line below according to your own path
     dataset = pd.read_csv('G:/Users/tinys/PycharmProjects/ObesityRiskAI/ObesityDataSet.csv')
     dataset.head()
     print(dataset.head())
     X = dataset.drop('NObeyesdad', axis=1)
     y = dataset['NObeyesdad']
-
+    print("Data Balance: " + str(y.value_counts()))
+    plot_data_distribution(dataset)
     # Map target variable to numerical values using label encoding
     label_encoder = LabelEncoder()
     y = label_encoder.fit_transform(y)
-
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
 
-    # Define preprocessing steps
+    # Words in the data need to be changed to numerical values
     numeric_features = selector(dtype_exclude="object")
     numeric_transformer = Pipeline(steps=[
         ("imputer", SimpleImputer(strategy="mean")),
@@ -66,6 +68,17 @@ def get_data():
 
     # Print classification report
     print("Classification Report:\n", classification_report(y_test_labels, y_pred_labels))
+
+
+def plot_data_distribution(dataset):
+    """plots the distribution of the target classes"""
+    plt.figure(figsize = (8, 6))
+    sns.countplot(x = 'NObeyesdad', data = dataset)
+    plt.title('Distribution of Target Variable')
+    plt.xlabel('Obesity Class')
+    plt.ylabel('Count')
+    plt.show()
+
 
 if __name__ == "__main__":
     get_data()
